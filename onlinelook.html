@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li class = "pptBtn">预览ppt</li>
+		<li class = "wordBtn">预览word</li>
+		<li class = "excelBtn">预览excel</li>
+	</ul>
+	<script type="text/javascript" src = "js/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		function viewFile (url) {
+		  let onlineViewType = ['doc', 'docx', 'xls', 'xlsx', 'xlsm', 'ppt', 'pptx']
+		  let fileTypeName = url.substring(url.lastIndexOf('.') + 1, url.length).split('?')[0]
+		  let isWord = onlineViewType.find((type) => type === fileTypeName)
+		  if (isWord) {
+		  	console.log(isWord);
+		    url = 'http://view.officeapps.live.com/op/view.aspx?src=' + url;
+		    console.log(url);
+		  }
+		  window.open(url)
+		}
+		$(".pptBtn").click(function(){
+		viewFile("http%3a%2f%2fvideo.ch9.ms%2fbuild%2f2011%2fslides%2fTOOL-532T_Sutter.pptx");
+		})
+		$(".wordBtn").click(function(){
+		viewFile("newteach.pbworks.com%2Ff%2Fele%2Bnewsletter.docx");
+		})
+		$(".excelBtn").click(function(){
+		// viewFile("http%3A%2F%2Flearn.bankofamerica.com%2Fcontent%2Fexcel%2FWedding_Budget_Planner_Spreadsheet.xlsx");
+		viewFile("https://dlznxj.longwaysoft.com/uploadfile/qxms/20200810/easyPoi.xlsx")
+		})
+
+	</script>
+</body>
+</html>
